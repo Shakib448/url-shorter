@@ -18,10 +18,6 @@ export const createShortUrl = asyncHandler(async (req, res) => {
       res.status(201).json({
         message: "Url Created Successfully",
       });
-    } else {
-      res.status(400).json({
-        message: "Something went wrong",
-      });
     }
   }
 });
