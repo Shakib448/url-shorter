@@ -8,6 +8,7 @@ import {
   TableHead,
   Paper,
   IconButton,
+  Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
@@ -38,16 +39,20 @@ const UrlShrinkTable = ({ data }) => {
       toast.error("Url Not Found");
     }
   };
-  return (
+  return data.length === 0 ? (
+    <Typography variant="h6" align="center">
+      SHORT URL IS NOT CREATED YET
+    </Typography>
+  ) : (
     <TableContainer component={Paper}>
       <ToastContainer />
       <Table sx={{ minWidth: 1024 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell></TableCell>
             <TableCell>Full URL</TableCell>
             <TableCell>Shorter URL</TableCell>
             <TableCell>Created</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,11 +62,6 @@ const UrlShrinkTable = ({ data }) => {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                <IconButton onClick={() => deleteHandler(item._id)}>
-                  <DeleteForeverIcon />
-                </IconButton>
-              </TableCell>
-              <TableCell component="th" scope="row">
                 {item.fullUrl}
               </TableCell>
               <TableCell className={clsx(classes.link)}>
@@ -70,6 +70,11 @@ const UrlShrinkTable = ({ data }) => {
                 </a>
               </TableCell>
               <TableCell>{item.createdAt.slice(0, 10)}</TableCell>
+              <TableCell component="th" scope="row">
+                <IconButton onClick={() => deleteHandler(item._id)}>
+                  <DeleteForeverIcon style={{ color: "#000" }} />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
