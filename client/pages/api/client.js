@@ -1,5 +1,7 @@
 import { create } from "apisauce";
 
-const apiClient = create({ baseURL: process.env.NEXT_HEROKU_URL });
+const apiClient = create({
+  baseURL: "https://warm-caverns-39390.herokuapp.com",
+});
 
 export default apiClient;
