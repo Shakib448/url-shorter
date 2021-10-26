@@ -5,9 +5,15 @@ import {
   OutlinedInput,
   InputLabel,
   Button,
+  FormHelperText,
+  Typography,
 } from "@mui/material";
 import clsx from "clsx";
 import { makeStyles } from "@mui/styles";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import urlSchema from "../../schema/urlSchema";
 
 const useStyles = makeStyles({
   btn: {
@@ -25,23 +31,50 @@ const useStyles = makeStyles({
 });
 
 const UrlShrinkForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ resolver: yupResolver(urlSchema) });
+
+  const onSubmit = async (formData) => {
+    console.log(formData);
+    reset();
+  };
+
   const classes = useStyles();
+
   return (
-    <FormControl fullWidth sx={{ mt: 2, mb: 4 }} variant="outlined">
-      <InputLabel htmlFor="outlined-adornment-url">URL</InputLabel>
-      <OutlinedInput
-        id="outlined-adornment-url"
-        type="text"
-        endAdornment={
-          <InputAdornment position="end">
-            <Button variant="contained" className={clsx(classes.btn)}>
-              Shrink
-            </Button>
-          </InputAdornment>
-        }
-        label="URL"
-      />
-    </FormControl>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <FormControl fullWidth sx={{ mt: 2, mb: 4 }} variant="outlined">
+        <InputLabel htmlFor="outlined-adornment-url">URL</InputLabel>
+        <OutlinedInput
+          id="outlined-adornment-url"
+          type="text"
+          inputProps={{ ...register("fullUrl") }}
+          endAdornment={
+            <InputAdornment position="end">
+              <Button
+                type="submit"
+                variant="contained"
+                className={clsx(classes.btn)}
+              >
+                Shrink
+              </Button>
+            </InputAdornment>
+          }
+          label="URL"
+        />
+        {errors.fullUrl && (
+          <FormHelperText>
+            <Typography style={{ color: "red" }} variant="subtitle2">
+              {errors.fullUrl?.message}
+            </Typography>
+          </FormHelperText>
+        )}
+      </FormControl>
+    </form>
   );
 };
 
