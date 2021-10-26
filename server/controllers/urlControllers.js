@@ -6,8 +6,8 @@ import ShortUrl from "../models/urlModel";
 // @access  Public
 export const createShortUrl = asyncHandler(async (req, res) => {
   const { fullUrl } = req.body;
-
   const urlExists = await ShortUrl.findOne({ fullUrl });
+
   if (urlExists) {
     res.status(400).json({
       message: "Url already exists",
@@ -18,6 +18,8 @@ export const createShortUrl = asyncHandler(async (req, res) => {
       res.status(201).json({
         message: "Url Created Successfully",
       });
+    } else {
+      res.status(400).json({ message: "Something went wrong" });
     }
   }
 });
