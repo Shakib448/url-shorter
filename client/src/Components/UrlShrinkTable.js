@@ -21,7 +21,7 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-const UrlShrinkTable = () => {
+const UrlShrinkTable = ({ data }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -29,18 +29,20 @@ const UrlShrinkTable = () => {
           <TableRow>
             <TableCell>Full URL</TableCell>
             <TableCell>Shorter URL</TableCell>
+            <TableCell>Created</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((item) => (
             <TableRow
-              key={row.name}
+              key={item._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {item.fullUrl}
               </TableCell>
-              <TableCell>{row.calories}</TableCell>
+              <TableCell>{item.shortUrl}</TableCell>
+              <TableCell>{item.createdAt.slice(0, 10)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

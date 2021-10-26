@@ -25,9 +25,18 @@ export const createShortUrl = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get Url
+// @route   Get /api/url/shortUrl
+// @access  Public
+export const getShortUrls = asyncHandler(async (req, res) => {
+  const shortUrls = await ShortUrl.find({}).select("-updatedAt");
+
+  res.send(shortUrls);
+});
+
+// @desc    Get Url
 // @route   Get /api/url/shortUrl/:shotUrl
 // @access  Public
-export const getShortUrl = asyncHandler(async (req, res) => {
+export const getShortUrlByParam = asyncHandler(async (req, res) => {
   const shortUrl = await ShortUrl.findOne({ shortUrl: req.params.shortUrl });
   if (shortUrl === null) return res.sendStatus(404);
 
