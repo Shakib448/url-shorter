@@ -1,12 +1,10 @@
 import mongoose from "mongoose";
-import shortId from "shortid";
+import { nanoid } from "nanoid";
 
 const shortUrlSchema = new mongoose.Schema(
   {
     fullUrl: { type: String, required: true },
-  },
-  {
-    shortUrl: { type: String, required: true, default: shortId.generate },
+    shortUrl: { type: String, required: true, default: nanoid() },
   },
   {
     timestamps: true,
