@@ -7,11 +7,22 @@ import ShortUrl from "../models/urlModel";
 export const createShortUrl = asyncHandler(async (req, res) => {
   const { fullUrl } = req.body;
 
-  if (fullUrl) {
-    await ShortUrl.create({ fullUrl });
-    res.sendStatus(200);
+  const urlExists = await ShortUrl.findOne({ fullUrl });
+  if (urlExists) {
+    res.status(400).json({
+      message: "Url already exists",
+    });
   } else {
-    res.sendStatus(500);
+    const url = await ShortUrl.create({ fullUrl });
+    if (url) {
+      res.status(201).json({
+        message: "Url Created Successfully",
+      });
+    } else {
+      res.status(400).json({
+        message: "Something went wrong",
+      });
+    }
   }
 });
 

@@ -46,7 +46,7 @@ const UrlShrinkForm = () => {
     if (ok) {
       toast.success("URL created successfully");
     } else {
-      toast.error("Something went wrong");
+      toast.error("Url already exists");
     }
     reset();
   };
