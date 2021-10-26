@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 
 // Font family
 const font = "'Poppins', sans-serif";
@@ -13,11 +12,9 @@ const theme = createTheme({
     secondary: {
       main: "#19857b",
     },
-    error: {
-      main: red.A400,
-    },
+
     background: {
-      default: "#0c2d48",
+      default: "#FAF9F6",
     },
   },
   typography: {
