@@ -27,7 +27,7 @@ const useStyles = makeStyles({
 const UrlShrinkForm = () => {
   const classes = useStyles();
   return (
-    <FormControl fullWidth sx={{ mt: 2 }} variant="outlined">
+    <FormControl fullWidth sx={{ mt: 2, mb: 4 }} variant="outlined">
       <InputLabel htmlFor="outlined-adornment-url">URL</InputLabel>
       <OutlinedInput
         id="outlined-adornment-url"
