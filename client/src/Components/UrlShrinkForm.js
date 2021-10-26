@@ -68,7 +68,7 @@ const UrlShrinkForm = () => {
         />
         {errors.fullUrl && (
           <FormHelperText>
-            <Typography style={{ color: "red" }} variant="subtitle2">
+            <Typography style={{ color: "red" }} variant="subtitle1">
               {errors.fullUrl?.message}
             </Typography>
           </FormHelperText>
