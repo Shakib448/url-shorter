@@ -14,8 +14,9 @@ import clsx from "clsx";
 const useStyles = makeStyles({
   link: {
     cursor: "pointer",
+    transition: ".5s",
     "&:hover": {
-      color: "blue",
+      color: "#F800CD",
     },
   },
 });
