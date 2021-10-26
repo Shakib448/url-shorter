@@ -25,7 +25,7 @@ const UrlShrinkTable = ({ data }) => {
   const classes = useStyles();
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+      <Table sx={{ minWidth: 1024 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
             <TableCell>Full URL</TableCell>
