@@ -6,11 +6,12 @@ import ShortUrl from "../models/urlModel";
 // @access  Public
 export const createShortUrl = asyncHandler(async (req, res) => {
   const { fullUrl } = req.body;
+
   if (fullUrl) {
     await ShortUrl.create({ fullUrl });
-    res.json({ message: "Successfully url created" });
+    res.sendStatus(200);
   } else {
-    res.statusCode(500).json({ message: "Something went wrong" });
+    res.sendStatus(500);
   }
 });
 

@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 const shortUrlSchema = new mongoose.Schema(
   {
     fullUrl: { type: String, required: true },
-    shortUrl: { type: String, required: true, default: nanoid().slice(0, 7) },
+    shortUrl: { type: String, required: true, default: nanoid(10) },
   },
   {
     timestamps: true,

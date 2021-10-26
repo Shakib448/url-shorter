@@ -12,8 +12,11 @@ import clsx from "clsx";
 import { makeStyles } from "@mui/styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import urlSchema from "../../schema/urlSchema";
+import urlApi from "../../pages/api/URL";
 
 const useStyles = makeStyles({
   btn: {
@@ -39,7 +42,12 @@ const UrlShrinkForm = () => {
   } = useForm({ resolver: yupResolver(urlSchema) });
 
   const onSubmit = async (formData) => {
-    console.log(formData);
+    const { ok } = await urlApi.createShortUrl(formData);
+    if (ok) {
+      toast.success("URL created successfully");
+    } else {
+      toast.error("Something went wrong");
+    }
     reset();
   };
 
@@ -47,6 +55,7 @@ const UrlShrinkForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <ToastContainer />
       <FormControl fullWidth sx={{ mt: 2, mb: 4 }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-url">URL</InputLabel>
         <OutlinedInput

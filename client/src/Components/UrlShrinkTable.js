@@ -27,8 +27,8 @@ const UrlShrinkTable = () => {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell>Calories</TableCell>
+            <TableCell>Full URL</TableCell>
+            <TableCell>Shorter URL</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
