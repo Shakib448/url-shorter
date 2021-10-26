@@ -32,3 +32,23 @@ export const getShortUrls = asyncHandler(async (req, res) => {
 
   res.send(shortUrls);
 });
+
+// @desc    Delete Url
+// @route   Get /api/url/:id
+// @access  Public
+// @Description Delete User
+// @routes GET/api/users/:id
+// @access Private/Admin
+
+export const deleteShortUrl = asyncHandler(async (req, res) => {
+  const url = await ShortUrl.findById(req.params.id);
+
+  if (url) {
+    const removeUrl = await url.remove();
+    res.json({ message: "Url removed" });
+    return removeUrl;
+  } else {
+    res.status(404);
+    throw new Error("Url not found");
+  }
+});
