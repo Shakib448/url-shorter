@@ -23,17 +23,12 @@
     "morgan": "^1.10.0",
     "nanoid": "^3.1.30"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "babel-jest": "^27.3.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "jest": "^27.3.1",
+    "superagent": "^6.1.0",
     "supertest": "^6.1.6"
   }
 }
