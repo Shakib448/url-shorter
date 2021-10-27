@@ -29,8 +29,9 @@ export const createShortUrl = asyncHandler(async (req, res) => {
 // @access  Public
 export const getShortUrls = asyncHandler(async (req, res) => {
   const shortUrls = await ShortUrl.find({}).select("-updatedAt");
-
-  res.send(shortUrls);
+  if (shortUrls) {
+    res.status(200).send(shortUrls);
+  }
 });
 
 // @desc    Delete Url

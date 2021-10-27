@@ -1,9 +1,10 @@
 import supertest from "supertest";
-import express from "express";
+import createServer from "../utils/server";
 
-const app = express();
+const app = createServer();
 describe("", () => {
   test("It should response the GET method", async () => {
-    await supertest(app).get("/api/shortUrl").toBe(200);
+    const res = await supertest(app).get("/api/shortUrl");
+    expect(res.statusCode).toBe(200);
   });
 });
