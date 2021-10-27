@@ -7,7 +7,8 @@
     "start": "node -r esm server",
     "server": "nodemon -r esm server",
     "client": "npm run dev --prefix ../client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,18 @@
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "nanoid": "^3.1.30"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "supertest": "^6.1.6"
   }
 }

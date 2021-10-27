@@ -1,15 +1,11 @@
-import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
-import cors from "cors";
 import urlRoutes from "./routes/urlRoutes";
+import createServer from "./utils/server";
 
 const PORT = process.env.PORT || 5000;
 
-const app = express();
-
-app.use(express.json());
-app.use(cors());
+const app = createServer();
 
 dotenv.config();
 
