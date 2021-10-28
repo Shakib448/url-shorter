@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node -r esm server",
-    "server": "nodemon -r esm server",
+    "start": "node -r esm ./utils/server",
+    "server": "nodemon -r esm ./utils/server",
     "client": "npm run dev --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "jest"
+    "test": "jest",
+    "test:watch" : "jest --watchAll"
   },
   "keywords": [],
   "author": "",

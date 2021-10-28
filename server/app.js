@@ -1,11 +1,12 @@
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 import urlRoutes from "./routes/urlRoutes";
-import createServer from "./utils/server";
+import express from "express";
+import cors from "cors";
 
-const PORT = process.env.PORT || 5000;
-
-const app = createServer();
+const app = express();
+app.use(express.json());
+app.use(cors());
 
 dotenv.config();
 
@@ -17,4 +18,4 @@ app.get("/", (req, res) => {
 
 app.use("/api/shortUrl", urlRoutes);
 
-app.listen(PORT, console.log(`Server is running on http://localhost:${PORT}`));
+export default app;
