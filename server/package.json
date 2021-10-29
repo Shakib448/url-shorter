@@ -8,7 +8,7 @@
     "server": "nodemon -r esm ./utils/server",
     "client": "npm run dev --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "jest",
+    "test": "jest --maxWorkers=100% --forceExit",
     "test:watch": "jest --watchAll"
   },
   "keywords": [],
