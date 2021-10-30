@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 
-import { Layout, UrlShrinkForm, UrlShrinkTable } from "../src/Components";
+import { Layout, UrlShrinkForm, UrlShrinkTable } from "@/components/index";
+
 import urlApi from "./api/URL";
 
 const Home = () => {
