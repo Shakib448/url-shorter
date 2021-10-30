@@ -8,7 +8,7 @@
     "server": "nodemon -r esm ./utils/server",
     "client": "npm run dev --prefix ../client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "jest --maxWorkers=100% --forceExit",
+    "test": "jest --forceExit",
     "test:watch": "jest --watchAll"
   },
   "keywords": [],
@@ -22,7 +22,8 @@
     "express-async-handler": "^1.2.0",
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
-    "nanoid": "^3.1.30"
+    "nanoid": "^3.1.30",
+    "sinon": "^11.1.2"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
