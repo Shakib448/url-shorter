@@ -29,16 +29,14 @@ export const createShortUrl = asyncHandler(async (req, res) => {
 // @access  Public
 export const getShortUrls = asyncHandler(async (req, res) => {
   const shortUrls = await ShortUrl.find({}).select("-updatedAt");
-
-  res.send(shortUrls);
+  if (shortUrls) {
+    res.status(200).send(shortUrls);
+  }
 });
 
 // @desc    Delete Url
 // @route   Get /api/url/:id
 // @access  Public
-// @Description Delete User
-// @routes GET/api/users/:id
-// @access Private/Admin
 
 export const deleteShortUrl = asyncHandler(async (req, res) => {
   const url = await ShortUrl.findById(req.params.id);

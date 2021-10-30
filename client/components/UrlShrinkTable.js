@@ -14,9 +14,8 @@ import { makeStyles } from "@mui/styles";
 import clsx from "clsx";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-import urlApi from "../../pages/api/URL";
+import urlApi from "../pages/api/URL";
 
 const useStyles = makeStyles({
   link: {

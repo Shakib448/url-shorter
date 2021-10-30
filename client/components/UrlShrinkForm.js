@@ -13,10 +13,9 @@ import { makeStyles } from "@mui/styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-import urlSchema from "../../schema/urlSchema";
-import urlApi from "../../pages/api/URL";
+import urlSchema from "../schema/urlSchema";
+import urlApi from "../pages/api/URL";
 
 const useStyles = makeStyles({
   btn: {
