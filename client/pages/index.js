@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 
-import { Layout, UrlShrinkForm, UrlShrinkTable } from "@/components/index";
+import {
+  Layout,
+  UrlShrinkForm,
+  UrlShrinkTable,
+  LoginForm,
+} from "@/components/index";
 
 import urlApi from "./api/URL";
 
@@ -20,6 +25,7 @@ const Home = () => {
       <Container maxWidth="lg">
         <UrlShrinkForm />
         <UrlShrinkTable data={data} />
+        <LoginForm />
       </Container>
     </Layout>
   );

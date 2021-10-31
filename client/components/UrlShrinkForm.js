@@ -60,7 +60,7 @@ const UrlShrinkForm = () => {
         <OutlinedInput
           id="outlined-adornment-url"
           type="text"
-          inputProps={{ ...register("fullUrl") }}
+          inputProps={{ ...register("fullUrl"), "aria-label": "fullUrl" }}
           endAdornment={
             <InputAdornment position="end">
               <Button
@@ -74,8 +74,9 @@ const UrlShrinkForm = () => {
           }
           label="URL"
         />
+
         {errors.fullUrl && (
-          <FormHelperText>
+          <FormHelperText role="alert">
             <Typography style={{ color: "red" }} variant="subtitle1">
               {errors.fullUrl?.message}
             </Typography>
